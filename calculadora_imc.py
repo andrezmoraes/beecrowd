@@ -9,8 +9,10 @@ def calcular_imc(peso, altura):
     Returns:
         float: O valor do IMC calculado.
     """
+    # Garante que a altura não é zero ou negativa para evitar divisão por zero.
     if altura <= 0:
         raise ValueError("A altura deve ser um valor positivo.")
+    # Fórmula do IMC: peso / (altura * altura)
     return peso / (altura ** 2)
 
 def classificar_imc(imc):
@@ -23,6 +25,7 @@ def classificar_imc(imc):
     Returns:
         str: A classificação do IMC.
     """
+    # Estrutura condicional para determinar a faixa de classificação do IMC.
     if imc < 18.5:
         return "Abaixo do peso"
     elif 18.5 <= imc < 25:
@@ -36,18 +39,25 @@ def classificar_imc(imc):
     else:
         return "Obesidade Grau III (mórbida)"
 
+# O bloco a seguir será executado apenas quando o script for executado diretamente.
 if __name__ == "__main__":
     try:
+        # Solicita ao usuário que insira seu peso e altura.
         peso_usuario = float(input("Digite seu peso em kg (ex: 70.5): "))
         altura_usuario = float(input("Digite sua altura em metros (ex: 1.75): "))
         
+        # Chama a função para calcular o IMC.
         imc_calculado = calcular_imc(peso_usuario, altura_usuario)
+        # Chama a função para classificar o IMC.
         classificacao = classificar_imc(imc_calculado)
         
+        # Exibe o resultado formatado para o usuário.
         print(f"\nSeu IMC é: {imc_calculado:.2f}")
         print(f"Classificação: {classificacao}")
         
     except ValueError as e:
+        # Trata o erro caso o usuário insira um valor não numérico.
         print(f"\nErro: {e}. Por favor, insira valores numéricos válidos.")
     except Exception as e:
+        # Trata quaisquer outros erros inesperados que possam ocorrer.
         print(f"\nOcorreu um erro inesperado: {e}")
