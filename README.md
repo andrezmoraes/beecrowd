@@ -12,5 +12,8 @@ Os exercícios estão organizados em pastas de acordo com a linguagem de program
 
 -   `Implementacao_C/`: Soluções desenvolvidas em C.
 -   `Implementacao_Python/`: Soluções desenvolvidas em Python.
+-   `Implementacao_C++/`: Soluções desenvolvidas em C++.
+
+
 
 ---
